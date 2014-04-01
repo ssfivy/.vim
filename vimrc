@@ -25,17 +25,12 @@
 "
 "
 
-" =====================
-" = Plugin management =
-" =====================
-
-" Set location of all of our auxiliary scripts
-let s:vimfiles="$HOME/.vim"
-
-
 " ========================
 " = OS-specific settings =
 " ========================
+
+" Set location of all of our auxiliary scripts
+let s:vimfiles="$HOME/.vim"
 
 if has('win32') || has('win64')
 	" Load windows-specific settings
@@ -44,6 +39,22 @@ else
 	" Load linux-specific settings
 	:exec ":source " . s:vimfiles . "/linux.vim"
 endif
+
+" =====================
+" = Plugin management =
+" =====================
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Plugin 'gmarik/vundle'
+Plugin 'tomasr/molokai'
+Plugin 'ciaranm/inkpot'
+Plugin 'scrooloose/nerdtree'
+
+filetype plugin indent on
 
 " ========================
 " = Common Configuration =
@@ -81,6 +92,8 @@ syntax on
 
 " Set color scheme
 set background=dark
+
+color molokai
 
 " default file encoding is utf-8
 set encoding=utf-8
