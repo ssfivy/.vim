@@ -44,17 +44,26 @@ endif
 " = Plugin management =
 " =====================
 
+" Let vundle handle all our plugins for us
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'
-Plugin 'tomasr/molokai'
-Plugin 'ciaranm/inkpot'
-Plugin 'scrooloose/nerdtree'
+Plugin 'gmarik/vundle'				" The vundle plugin management
+Plugin 'tomasr/molokai'				" Molokai color scheme
+Plugin 'ciaranm/inkpot'				" Inkpot color scheme
+Plugin 'altercation/vim-colors-solarized' "Solarized colorscheme
+Plugin 'scrooloose/nerdtree'		" treeview on side
+Plugin 'jistr/vim-nerdtree-tabs'	" nerdtree improvements
+Plugin 'ervandew/supertab'			" use tab key for insert completion
+"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
+Plugin 'myusuf3/numbers.vim'        " Intellegently toggle line numbers
 
 filetype plugin indent on
+
+" stuff I don't know how to add to vundle
+:exec ":source" . s:vimfiles . "/cscope_maps.vim"
 
 " ========================
 " = Common Configuration =
@@ -69,8 +78,12 @@ set history=1000
 " VIM user interface
 """"""""""""""""""""
 
-" Display line numbers
+"line numbers
 set number
+"set relativenumber " use relative line numbers by default
+" Use relative numbers when in focus, absolute numbers otherwise
+":au FocusLost * :set number
+":au FocusGained * :set relativenumber
 
 " Ignore case when searching
 set ignorecase
@@ -92,8 +105,7 @@ syntax on
 
 " Set color scheme
 set background=dark
-
-color molokai
+color inkpot
 
 " default file encoding is utf-8
 set encoding=utf-8
@@ -114,11 +126,20 @@ else
   endif
 endif
 
-" Moving around, tabs and buffers
-"""""""""""""""""""""""""""""""""
+" Default tab configuration
+setlocal tabstop=4       " Tabs are 4 spaces wide
+
+
+
+" Moving around, vim tabs and buffers
+"""""""""""""""""""""""""""""""""""""
 
 " always show tab bar
 set showtabline=2
+
+" open NERDTree on startup
+autocmd VimEnter * NERDTreeTabsOpen
+
 
 " fuck you lear siegler for putting arrow keys at insane locations
 " crutch: use ijkl for sane arrow movement instead of hjkl
@@ -169,6 +190,16 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
 
 " Always show status line
 set laststatus=2
+
+" Tags and related
+""""""""""""""""""
+
+" Omni completion
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,longest,preview
+
+" Trigger omni completion with tab key
+let g:SuperTabDefaultCompletionType = "context"
 
 " =================================== 
 " = Language-specific configuration =
