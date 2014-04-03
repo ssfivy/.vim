@@ -21,6 +21,8 @@
 "    -> Misc
 "    -> Helper functions
 "
+" ==Task-specific configuration==
+"
 " ==Language-specific configuration==
 "
 "
@@ -28,6 +30,7 @@
 " ========================
 " = OS-specific settings =
 " ========================
+" Handle cross-platform issues after bootloader
 
 " Set location of all of our auxiliary scripts
 let s:vimfiles="$HOME/.vim"
@@ -200,6 +203,13 @@ set completeopt=menuone,longest,preview
 
 " Trigger omni completion with tab key
 let g:SuperTabDefaultCompletionType = "context"
+
+" ==========================
+" = Task-specific settings =
+" ==========================
+" Run specific vimrc scripts depending on what the computer is
+" call script for work/circuitlink
+" call script for personal machine
 
 " =================================== 
 " = Language-specific configuration =
