@@ -62,6 +62,8 @@ Plugin 'jistr/vim-nerdtree-tabs'	" nerdtree improvements
 Plugin 'ervandew/supertab'			" use tab key for insert completion
 "Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
 Plugin 'myusuf3/numbers.vim'        " Intellegently toggle line numbers
+"Plugin 'sirver/ultisnips'           " snippet engine
+Plugin 'honza/vim-snippets'         " snippet collection
 
 filetype plugin indent on
 
@@ -203,6 +205,9 @@ set completeopt=menuone,longest,preview
 
 " Trigger omni completion with tab key
 let g:SuperTabDefaultCompletionType = "context"
+
+" Snippet trigger configuration
+"let g:UltiSnipsExpandTrigger="<tab>"
 
 " ==========================
 " = Task-specific settings =
