@@ -54,16 +54,24 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Plugin 'gmarik/vundle'				" The vundle plugin management
-Plugin 'tomasr/molokai'				" Molokai color scheme
-Plugin 'ciaranm/inkpot'				" Inkpot color scheme
-Plugin 'altercation/vim-colors-solarized' "Solarized colorscheme
+
+"Colorschemes
+Plugin 'tomasr/molokai'
+Plugin 'ciaranm/inkpot'
+Plugin 'altercation/vim-colors-solarized'
+" Navigational
 Plugin 'scrooloose/nerdtree'		" treeview on side
 Plugin 'jistr/vim-nerdtree-tabs'	" nerdtree improvements
-Plugin 'ervandew/supertab'			" use tab key for insert completion
-"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
 Plugin 'myusuf3/numbers.vim'        " Intellegently toggle line numbers
+Plugin 'plasticboy/vim-markdown'    "Folding on markdown files
+" Auto completion
+Plugin 'ervandew/supertab'			" use tab key for insert completion
 "Plugin 'sirver/ultisnips'           " snippet engine
 Plugin 'honza/vim-snippets'         " snippet collection
+"Plugin 'Valloric/YouCompleteMe' " Code completion engine
+" External Tools
+"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
+"Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
 
 filetype plugin indent on
 
@@ -85,23 +93,26 @@ set history=1000
 
 "line numbers
 set number
-"set relativenumber " use relative line numbers by default
-" Use relative numbers when in focus, absolute numbers otherwise
-":au FocusLost * :set number
-":au FocusGained * :set relativenumber
-
 " Ignore case when searching
 set ignorecase
-
 " When searching try to be smart about cases
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " While typing a search command, show where the pattern, as it was typed
 " so far, matches.  The matched string is highlighted.
 set incsearch
+" Clear search result highlight when entering insert mode
+" This sets the "latest search" register to the empty string, so that nothing
+" will be highlighted. Earlier searches can still be remembered by using the
+" key after hitting / or ? and optionally the "start" of the string to be
+" searched.
+autocmd InsertEnter * :let @/=""
+autocmd InsertLeave * :let @/=""
+
+" tab completion for command mode
+set wildmode=longest:full,list:full,full
+set wildmenu
 
 " Colors and Fonts
 """"""""""""""""""
@@ -219,5 +230,13 @@ let g:SuperTabDefaultCompletionType = "context"
 " =================================== 
 " = Language-specific configuration =
 " =================================== 
-" See .vim/after/ftplugin for individual file types
+" See .vim/after/ftplugin for more configurations after this vimrc ends
+
+" Change colorschemes by filetype
+" We can't put this command in separate filetype plugin, this has to be a
+" global command
+:autocmd BufEnter,FileType *
+\   if &ft ==# 'c' || &ft ==# 'cpp' | colorscheme inkpot |
+\   elseif &ft ==# 'mkd' | colorscheme molokai |
+\   endif
 
