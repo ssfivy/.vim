@@ -53,25 +53,32 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Plugin 'gmarik/vundle'				" The vundle plugin management
+" Plugin management
+Plugin 'gmarik/vundle'
 
-"Colorschemes
+" Colorschemes
 Plugin 'tomasr/molokai'
 Plugin 'ciaranm/inkpot'
 Plugin 'altercation/vim-colors-solarized'
+
 " Navigational
-Plugin 'scrooloose/nerdtree'		" treeview on side
-Plugin 'jistr/vim-nerdtree-tabs'	" nerdtree improvements
-Plugin 'myusuf3/numbers.vim'        " Intellegently toggle line numbers
-Plugin 'plasticboy/vim-markdown'    "Folding on markdown files
+Plugin 'scrooloose/nerdtree'              " treeview on side
+Plugin 'jistr/vim-nerdtree-tabs'          " nerdtree improvements
+Plugin 'myusuf3/numbers.vim'              " Intellegently toggle line numbers
+Plugin 'plasticboy/vim-markdown'          " Folding on markdown files
+
 " Auto completion
-Plugin 'ervandew/supertab'			" use tab key for insert completion
-"Plugin 'sirver/ultisnips'           " snippet engine
-Plugin 'honza/vim-snippets'         " snippet collection
-"Plugin 'Valloric/YouCompleteMe' " Code completion engine
+Plugin 'ervandew/supertab'                " use tab key for insert completion
+		" Plugin 'sirver/ultisnips'           " snippet engine
+Plugin 'honza/vim-snippets'               " snippet collection
+		" Plugin 'Valloric/YouCompleteMe'     " Code completion engine
+
+" Formatting
+Plugin 'godlygeek/tabular'                " Line up various texts
+
 " External Tools
-"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
-"Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
+Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
+		" Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
 
 filetype plugin indent on
 
@@ -91,8 +98,10 @@ set history=1000
 " VIM user interface
 """"""""""""""""""""
 
-"line numbers
+" line numbers
 set number
+" do not display line numbers in these filetypes
+let g:numbers_exclude = ['conque_term','tagbar', 'gundo', 'minibufexpl', 'nerdtree']
 " Ignore case when searching
 set ignorecase
 " When searching try to be smart about cases
@@ -131,15 +140,15 @@ set encoding=utf-8
 
 " Show tabs and trailing whitespace visually
 if (&termencoding == "utf-8") || has("gui_running")
-  set list listchars=tab:»·,trail:·,extends:…
-  if v:version >= 700
-    set listchars+=nbsp:‗
-  endif
+set list listchars=tab:»·,trail:·,extends:…
+if v:version >= 700
+set listchars+=nbsp:‗
+endif
 else
-  set list listchars=tab:>-,trail:.,extends:>
-  if v:version >= 700
-    set listchars+=nbsp:_
-  endif
+set list listchars=tab:>-,trail:.,extends:>
+if v:version >= 700
+set listchars+=nbsp:_
+endif
 endif
 
 " Default tab configuration
@@ -156,6 +165,8 @@ set showtabline=2
 " open NERDTree on startup
 autocmd VimEnter * NERDTreeTabsOpen
 
+" Exclude irrelevant filed from NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$']
 
 " fuck you lear siegler for putting arrow keys at insane locations
 " crutch: use ijkl for sane arrow movement instead of hjkl
@@ -225,6 +236,9 @@ let g:SuperTabDefaultCompletionType = "context"
 " ==========================
 " Run specific vimrc scripts depending on what the computer is
 " call script for work/circuitlink
+if has('win32') || has('win64')
+	:exec ":source " . s:vimfiles . "/work.vim"
+endif
 " call script for personal machine
 
 " =================================== 
