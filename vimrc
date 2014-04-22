@@ -227,6 +227,8 @@ set completeopt=menuone,longest,preview
 
 " Trigger omni completion with tab key
 let g:SuperTabDefaultCompletionType = "context"
+" Navigate completion menu from top to bottom
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Snippet trigger configuration
 "let g:UltiSnipsExpandTrigger="<tab>"
