@@ -2,7 +2,7 @@
 """""""""""""""""""""""""
 
 " Set terminal encoding to utf-8
-if (&term =~ "xterm" || &term == "screen") && (&termencoding == "")
+if (&term =~ "xterm" || &term =~ "unicode" || &term == "screen") && (&termencoding == "")
 	set termencoding=utf-8
 endif
 

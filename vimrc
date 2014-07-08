@@ -54,6 +54,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Plugin management
+" To install plugin call :PluginInstall
 Plugin 'gmarik/vundle'
 
 " Colorschemes
@@ -69,7 +70,7 @@ Plugin 'plasticboy/vim-markdown'          " Folding on markdown files
 
 " Auto completion
 Plugin 'ervandew/supertab'                " use tab key for insert completion
-		" Plugin 'sirver/ultisnips'           " snippet engine
+Plugin 'sirver/ultisnips'           " snippet engine
 Plugin 'honza/vim-snippets'               " snippet collection
 		" Plugin 'Valloric/YouCompleteMe'     " Code completion engine
 
@@ -130,7 +131,9 @@ syntax on
 
 " Set color scheme
 set background=dark
-color inkpot
+let g:solarized_visibility="low"
+let g:solarized_termtrans=1
+color solarized
 
 " default file encoding is utf-8
 set encoding=utf-8
@@ -251,8 +254,8 @@ endif
 " Change colorschemes by filetype
 " We can't put this command in separate filetype plugin, this has to be a
 " global command
-:autocmd BufEnter,FileType *
-\   if &ft ==# 'c' || &ft ==# 'cpp' | colorscheme inkpot |
-\   elseif &ft ==# 'mkd' | colorscheme molokai |
-\   endif
+" :autocmd BufEnter,FileType *
+" \   if &ft ==# 'c' || &ft ==# 'cpp' | colorscheme inkpot |
+" \   elseif &ft ==# 'mkd' | colorscheme molokai |
+" \   endif
 
