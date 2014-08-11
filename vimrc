@@ -51,7 +51,7 @@ endif
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " Plugin management
 " To install plugin call :PluginInstall
@@ -81,6 +81,7 @@ Plugin 'godlygeek/tabular'                " Line up various texts
 Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
 		" Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
 
+call vundle#end()
 filetype plugin indent on
 
 " stuff I don't know how to add to vundle

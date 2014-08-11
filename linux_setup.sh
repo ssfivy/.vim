@@ -2,10 +2,10 @@
 # make sure you have git and vim installed
 
 #install vundle, our vim plugin manager
-#git clone https://github.com/gmarik/vundle.git ~/vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/vim/bundle/vundle
 
 #create shortcut for bootstrap code
 ln -s ~/.vim/vim_bootstrap ~/.vimrc
 
 #tell vundle to download all our plugins
-#vim -u ~/.vim/bundles.vim +BundleInstall +:q
+vim +PluginInstall +qall
