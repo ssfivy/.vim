@@ -84,9 +84,6 @@ Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
 call vundle#end()
 filetype plugin indent on
 
-" stuff I don't know how to add to vundle
-:exec ":source" . s:vimfiles . "/cscope_maps.vim"
-
 " ========================
 " = Common Configuration =
 " ========================
