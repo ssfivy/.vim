@@ -10,3 +10,5 @@ vim +PluginInstall +qall
 #create shortcut for bootstrap code
 ln -s ~/.vim/vim_bootstrap ~/.vimrc
 
+#shortcut for vimperator
+ln -s ~/.vim/vimperatorrc ~/.vimperatorrc

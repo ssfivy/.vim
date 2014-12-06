@@ -1,0 +1,30 @@
+
+
+
+" fuck you lear siegler for putting arrow keys at insane locations
+" crutch: use ijkl for sane arrow movement instead of hjkl
+" scroll vertical multiple lines
+
+nnoremap i 3k
+nnoremap I K
+nnoremap <C-w>i <C-w>k
+nnoremap <C-w>I <C-w>K
+nnoremap <C-w><C-i> <C-w><C-k>
+nnoremap k 3j
+nnoremap K J
+nnoremap <C-w>k <C-w>j
+nnoremap <C-w>K <C-w>J
+nnoremap <C-w><C-k> <C-w><C-k>
+nnoremap j h
+nnoremap J H
+nnoremap <C-w>j <C-w>h
+nnoremap <C-w>J <C-w>H
+nnoremap <C-w><C-j> <C-w><C-h>
+nnoremap h i
+nnoremap H I
+
+
+" enable hints for command mode
+"set wildoptions=auto
+" enable hints for links in command open mode. l or one.
+set cpt=l
