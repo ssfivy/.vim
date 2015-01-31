@@ -15,6 +15,12 @@ set backspace=indent,eol,start
 " use diff utility from PATH
 "set diffexpr=
 
+" Hide toolbar and menu bar for moar space
+set guioptions -=m
+set guioptions -=T
+
+let g:netrw_cygwin = 0
+let g:netrw_scp_cmd = "\"C:\\cmder\\vendor\\msysgit\\bin\\scp.exe\" "
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim           
