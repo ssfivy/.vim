@@ -3,10 +3,10 @@
 " Use indentation for code folding
 set foldmethod=indent
 " Keep toplevel fold open when opening file
-set foldlevel=1
+" set foldlevel=1
 
 " Set omni completion to use python syntax
-set omnifunc=pythoncomplete#Complete
+" set omnifunc=pythoncomplete#Complete
 
 " override the indentation settings
 " PEP-8 mandates 4 spaces indent for new code.
@@ -20,8 +20,10 @@ setlocal softtabstop=4
 " https://stackoverflow.com/questions/953398/how-to-execute-file-im-editing-in-vim/953425#953425
 " set autowrite
 " au BufEnter *
+" \echo "Suck it fags" |
 " \if match( getline(1) , '^\#!') == 0 |
 " \ execute("let b:interpreter = getline(1)[2:]") |
+" \ echo "durrhurr"
 " \endif
 " 
 " fun! CallInterpreter()
@@ -36,6 +38,6 @@ setlocal softtabstop=4
 
 " Above solution need more vimscript magic than I have so here's a simpler
 " version for now
-map <F5> :w<cr>:!%:p<cr><cr>
+" map <F5> :w<cr>:!%:p<cr><cr>
 
 
