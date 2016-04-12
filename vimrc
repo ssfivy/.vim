@@ -50,12 +50,12 @@ endif
 " Let vundle handle all our plugins for us
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugin management
 " To install plugin call :PluginInstall
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Colorschemes
 Plugin 'tomasr/molokai'

@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""
 
 "Set font for gvim
-set guifont=Consolas:h10:cANSI
+set guifont=Consolas:h8:cANSI
 
 " Use cmd if we're calling shell stuff
 " I would use powershell except it broke diff functionality
