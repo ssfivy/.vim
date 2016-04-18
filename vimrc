@@ -162,6 +162,9 @@ setlocal softtabstop=4
 " Moving around, vim tabs and buffers
 """""""""""""""""""""""""""""""""""""
 
+" fix cursor in middle of screen and move the text around it
+set scrolloff=100
+
 " always show tab bar
 set showtabline=2
 
