@@ -2,9 +2,9 @@
 "
 " Table of contents:
 "
-" ==Plugin management==
-"
 " ==OS-specific configuration==
+"
+" ==Plugin management==
 "
 " ==Common configuration==
 "    -> General configuration
@@ -21,10 +21,9 @@
 "    -> Misc
 "    -> Helper functions
 "
-" ==Task-specific configuration==
+" ==Plugin-specific configuration==
 "
 " ==Language-specific configuration==
-"
 "
 
 " ========================
@@ -72,14 +71,14 @@ Plugin 'plasticboy/vim-markdown'          " Folding on markdown files
 Plugin 'ervandew/supertab'                " use tab key for insert completion
 Plugin 'sirver/ultisnips'           " snippet engine
 Plugin 'honza/vim-snippets'               " snippet collection
-		" Plugin 'Valloric/YouCompleteMe'     " Code completion engine
+" Plugin 'Valloric/YouCompleteMe'     " Code completion engine
 
 " Formatting
 Plugin 'godlygeek/tabular'                " Line up various texts
 
 " External Tools
-Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
-		" Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
+"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
+" Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
 
 call vundle#end()
 filetype plugin indent on
@@ -141,38 +140,31 @@ set encoding=utf-8
 
 " Show tabs and trailing whitespace visually
 if (&termencoding == "utf-8") || has("gui_running")
-set list listchars=tab:»·,trail:·,extends:…
-if v:version >= 700
-set listchars+=nbsp:‗
-endif
+	set list listchars=tab:»·,trail:·,extends:…
+	if v:version >= 700
+		set listchars+=nbsp:‗
+	endif
 else
-set list listchars=tab:>-,trail:.,extends:>
-if v:version >= 700
-set listchars+=nbsp:_
-endif
+		set list listchars=tab:>-,trail:.,extends:>
+	if v:version >= 700
+		set listchars+=nbsp:_
+	endif
 endif
 
 " Default tab configuration
 setlocal tabstop=4       " Tabs are 4 spaces wide
 setlocal shiftwidth=4
 setlocal softtabstop=4
-
-
+setlocal expandtab
 
 " Moving around, vim tabs and buffers
 """""""""""""""""""""""""""""""""""""
 
-" fix cursor in middle of screen and move the text around it
-set scrolloff=100
+" fix cursor around middle of screen and move the text around it
+set scrolloff=30
 
 " always show tab bar
 set showtabline=2
-
-" open NERDTree on startup
-autocmd VimEnter * NERDTreeTabsOpen
-
-" Exclude irrelevant filed from NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$']
 
 " fuck you lear siegler for putting arrow keys at insane locations
 " crutch: use ijkl for sane arrow movement instead of hjkl
@@ -195,9 +187,6 @@ noremap <C-w><C-k> <C-w><C-k>
 noremap h i
 noremap H I
 
-let NERDTreeMapOpenSplit='h'
-let NERDTreeMapToggleHidden='H'
-
 " restrict: disable arrow keys in normal and insert modes
 map <up> <nop>
 map <down> <nop>
@@ -212,14 +201,14 @@ imap <right> <nop>
 """""""""""""
 
 set statusline=
-set statusline+=\ %-3.3n\ " buffer number
-set statusline+=%f\ " file name
-set statusline+=%h%m%r%w " flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}, " filetype
-set statusline+=%{&encoding}, " encoding
-set statusline+=%{&fileformat}] " file format
-set statusline+=%= " right align
-set statusline+=%-14.(%l,%c%V%)\ %<%P " offset
+set statusline+=\ %-3.3n\                       " buffer number
+set statusline+=%f\                             " file name
+set statusline+=%h%m%r%w                        " flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'},    " filetype
+set statusline+=%{&encoding},                   " encoding
+set statusline+=%{&fileformat}]                 " file format
+set statusline+=%=                              " right align
+set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
 
 " Always show status line
 set laststatus=2
@@ -227,20 +216,11 @@ set laststatus=2
 " Tags and related
 """"""""""""""""""
 
-" Omni completion
-set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,longest,preview
-
-" Trigger omni completion with tab key
-let g:SuperTabDefaultCompletionType = "context"
-" Navigate completion menu from top to bottom
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
-
 " Don't screw up folds when inserting text that might affect them, until
 " leaving insert mode. Foldmethod is local to the window. Protect against
 " screwing up folding when switching between windows.
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+"autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+"autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 " Snippet trigger configuration
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -250,15 +230,30 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:las
 " Hit F9 to run make
 :map <F9> :make <CR>
 
-" ==========================
-" = Task-specific settings =
-" ==========================
-" Run specific vimrc scripts depending on what the computer is
-" call script for work/circuitlink
-if has('win32') || has('win64')
-	:exec ":source " . s:vimfiles . "/work.vim"
-endif
-" call script for personal machine
+" ================================= 
+" = Plugin-specific configuration =
+" ================================= 
+
+" NERDTree 
+"""""""""""
+" open NERDTree on startup
+autocmd VimEnter * NERDTreeTabsOpen
+
+" Exclude irrelevant filed from NERDTree
+let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$']
+
+let NERDTreeMapOpenSplit='h'
+let NERDTreeMapToggleHidden='H'
+
+" Omni completion
+"""""""""""""""""
+set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,longest,preview
+
+" Trigger omni completion with tab key
+let g:SuperTabDefaultCompletionType = "context"
+" Navigate completion menu from top to bottom
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " =================================== 
 " = Language-specific configuration =
@@ -272,4 +267,5 @@ endif
 " \   if &ft ==# 'c' || &ft ==# 'cpp' | colorscheme inkpot |
 " \   elseif &ft ==# 'mkd' | colorscheme molokai |
 " \   endif
+":exec "ConqueTermTab python"
 
