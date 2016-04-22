@@ -2,7 +2,8 @@
 # make sure you have git and vim installed
 
 #install vundle, our vim plugin manager
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 #tell vundle to download all our plugins
 vim +PluginInstall +qall
