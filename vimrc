@@ -245,6 +245,13 @@ let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$']
 let NERDTreeMapOpenSplit='h'
 let NERDTreeMapToggleHidden='H'
 
+" NERDtree fixes
+" Open nerdtree on console vim, even on new tabs
+let g:nerdtree_tabs_open_on_console_startup = 1
+" When switching into a tab, make sure that focus is on the file window, not
+" in the NERDTree window.
+let g:nerdtree_tabs_focus_on_files = 1
+
 " Omni completion
 """""""""""""""""
 set omnifunc=syntaxcomplete#Complete
