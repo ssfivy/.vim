@@ -133,10 +133,6 @@ let g:solarized_visibility="low"
 let g:solarized_termtrans=1
 color solarized
 
-"set background=light
-"color lucius
-"LuciusLightHighContrast
-
 " default file encoding is utf-8
 set encoding=utf-8
 
@@ -266,6 +262,17 @@ set completeopt=menuone,longest,preview
 let g:SuperTabDefaultCompletionType = "context"
 " Navigate completion menu from top to bottom
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+" ================================== 
+" = Machine-specific configuration =
+" ================================== 
+let hostname = substitute(system('hostname'), '\n', '', '')
+if hostname == "petrushka"
+	" Laptop, use light color theme
+	set background=light
+	color lucius
+	LuciusLightHighContrast
+endif
 
 " =================================== 
 " = Language-specific configuration =
