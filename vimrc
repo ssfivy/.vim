@@ -60,6 +60,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'ciaranm/inkpot'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'jonathanfilip/vim-lucius'
 
 " Navigational
 Plugin 'scrooloose/nerdtree'              " treeview on side
@@ -131,6 +132,10 @@ set background=dark
 let g:solarized_visibility="low"
 let g:solarized_termtrans=1
 color solarized
+
+"set background=light
+"color lucius
+"LuciusLightHighContrast
 
 " default file encoding is utf-8
 set encoding=utf-8
