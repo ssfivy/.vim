@@ -61,6 +61,7 @@ Plugin 'tomasr/molokai'
 Plugin 'ciaranm/inkpot'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'chriskempson/base16-vim'
 
 " Navigational
 Plugin 'scrooloose/nerdtree'              " treeview on side
@@ -129,9 +130,7 @@ syntax on
 
 " Set color scheme
 set background=dark
-let g:solarized_visibility="low"
-let g:solarized_termtrans=1
-color solarized
+color base16-flat
 
 " default file encoding is utf-8
 set encoding=utf-8
