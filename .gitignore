@@ -1,0 +1,7 @@
+
+# text editor tmp files
+*~
+*.swp
+
+# git repos cloned by vundle
+bundle/*

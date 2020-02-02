@@ -1,6 +1,0 @@
-syntax:glob
-bundle/*
-
-# text editor tmp files
-*~
-*.swp
