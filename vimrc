@@ -69,18 +69,32 @@ Plugin 'jistr/vim-nerdtree-tabs'          " nerdtree improvements
 Plugin 'myusuf3/numbers.vim'              " Intellegently toggle line numbers
 Plugin 'plasticboy/vim-markdown'          " Folding on markdown files
 
+" Editing
+Plugin 'terryma/vim-multiple-cursors'     " Multiple cursors
+Plugin 'tpope/vim-commentary'             " Comments stuff out
+
 " Auto completion
 Plugin 'ervandew/supertab'                " use tab key for insert completion
 Plugin 'sirver/ultisnips'           " snippet engine
 Plugin 'honza/vim-snippets'               " snippet collection
 " Plugin 'Valloric/YouCompleteMe'     " Code completion engine
 
+" UI
+Plugin 'vim-airline/vim-airline'           " Lean & mean status/tabline for vim that's light as air.
+Plugin 'vim-airline/vim-airline-themes'     " Themes for vim-airline
+
 " Formatting
 Plugin 'godlygeek/tabular'                " Line up various texts
 
+" Language support
+Plugin 'dense-analysis/ale'          " Asynchronous syntax checker
+
 " External Tools
+Plugin 'tpope/vim-fugitive'         " git client
 "Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
 " Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
+
+" TODO: https://www.vimfromscratch.com/articles/vim-for-python/
 
 call vundle#end()
 filetype plugin indent on
@@ -139,22 +153,13 @@ set encoding=utf-8
 """"""""""""""""""""""""""""""
 
 " Show tabs and trailing whitespace visually
-if (&termencoding == "utf-8") || has("gui_running")
-	set list listchars=tab:»·,trail:·,extends:…
-	if v:version >= 700
-		set listchars+=nbsp:‗
-	endif
-else
-		set list listchars=tab:>-,trail:.,extends:>
-	if v:version >= 700
-		set listchars+=nbsp:_
-	endif
-endif
+set list listchars=tab:»·,trail:·,extends:…
+set listchars+=nbsp:‗
 
 " Default tab configuration
 setlocal tabstop=4       " Tabs are 4 spaces wide
-setlocal shiftwidth=4
 setlocal softtabstop=4
+setlocal shiftwidth=4
 setlocal expandtab
 
 " Moving around, vim tabs and buffers
@@ -261,6 +266,10 @@ set completeopt=menuone,longest,preview
 let g:SuperTabDefaultCompletionType = "context"
 " Navigate completion menu from top to bottom
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
+" Airline
+let g:airline_theme='base16'        " set theme
+let g:airline_powerline_fonts = 1   " use powerline fonts
 
 " ================================== 
 " = Machine-specific configuration =
