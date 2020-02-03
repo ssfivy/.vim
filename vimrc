@@ -88,6 +88,7 @@ Plugin 'godlygeek/tabular'                " Line up various texts
 
 " Language support
 Plugin 'dense-analysis/ale'          " Asynchronous syntax checker
+Plugin 'sheerun/vim-polyglot'          " Language pack for 120+ languages
 
 " External Tools
 Plugin 'tpope/vim-fugitive'         " git client
@@ -108,6 +109,11 @@ filetype plugin indent on
 
 " Sets how many lines of history VIM has to remember
 set history=1000
+
+" enable modelines
+set modeline
+set modelines=5
+
 
 " VIM user interface
 """"""""""""""""""""
@@ -245,7 +251,7 @@ set laststatus=2
 autocmd VimEnter * NERDTreeTabsOpen
 
 " Exclude irrelevant filed from NERDTree
-let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$']
+let NERDTreeIgnore = ['\.pyc$', '\.launch$', '\.apconfig$', '\.egg-info$', '__pycache__']
 
 let NERDTreeMapOpenSplit='h'
 let NERDTreeMapToggleHidden='H'

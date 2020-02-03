@@ -8,11 +8,11 @@
 # shell script linter
 APT_TOOLS="shellcheck"
 # clangd, a c/c++ language server, version 8 minimum
-APT_TOOLS+="clang-tools-9"
+APT_TOOLS+=" clang-tools-9"
 # powerline fonts to make things pretty
-APT_TOOLS+="fonts-powerline"
+APT_TOOLS+=" fonts-powerline"
 
-sudo apt install "$APT_TOOLS"
+echo "$APT_TOOLS" | xargs sudo apt install -y
 
 #install vundle, our vim plugin manager
 #git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
