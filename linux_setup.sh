@@ -40,6 +40,8 @@ if [[ ( -d "$HOME/bin") && ( ! -x "$HOME/bin/nvim.appimage")  ]]; then
     pushd "$HOME/bin"
     curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
     chmod u+x nvim.appimage
+    mv nvim.appimage nvim
+    pip3 install neovim
     popd
 fi
 
