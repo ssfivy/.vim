@@ -8,7 +8,7 @@
 # shell script linter
 APT_TOOLS="shellcheck"
 # clangd, a c/c++ language server, version 8 minimum
-APT_TOOLS+=" clang-tools-9"
+APT_TOOLS+=" clangd-9"
 # powerline fonts to make things pretty
 APT_TOOLS+=" fonts-powerline"
 
