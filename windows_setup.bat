@@ -1,5 +1,21 @@
 REM Copies the bootstrap file into home directory so gvim can read the rest of our config
-copy .vim\vim_bootstrap _vimrc
+copy "%~dp0\vim_bootstrap" "%userprofile%\_vimrc"
 
 REM Copied vimperatorrc - no bootstrap file for windows yet
-copy .vim\vimperatorrc _vimperatorrc
+copy "%~dp0\vimperatorrc" "%userprofile%\_vimperatorrc"
+
+REM Create config redirect for neovim
+echo set runtimepath^^=%~dp0 runtimepath+=%~dp0/after >> init.vim
+echo let ^&packpath = ^&runtimepath >> init.vim
+echo source %~dp0/vimrc >> init.vim
+
+REM install nvim config
+if not exist "%LOCALAPPDATA%\nvim" mkdir "%LOCALAPPDATA%\nvim"
+move /Y init.vim "%LOCALAPPDATA%\nvim\init.vim"
+
+REM install plugin manager
+git clone https://github.com/VundleVim/Vundle.vim.git "%~dp0\bundle\Vundle.vim"
+nvim +PluginInstall +qall
+
+REM install nvim plugin python
+pip install --user pynvim

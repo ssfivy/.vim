@@ -16,11 +16,17 @@ set backspace=indent,eol,start
 "set diffexpr=
 
 " Hide toolbar and menu bar for moar space
-set guioptions -=m
-set guioptions -=T
+if !has('nvim')
+    set guioptions -=m
+    set guioptions -=T
+endif
 
 let g:netrw_cygwin = 0
 let g:netrw_scp_cmd = "\"C:\\cmder\\vendor\\msysgit\\bin\\scp.exe\" "
+
+if has('nvim')
+    let g:NERDTreeNodeDelimiter = "\u00a0"
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim           
