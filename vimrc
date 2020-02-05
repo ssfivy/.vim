@@ -149,8 +149,13 @@ set wildmenu
 syntax on
 
 " Set color scheme
-set background=dark
-color base16-flat
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+else
+  set background=dark
+  color solarized
+endif
 
 " default file encoding is utf-8
 set encoding=utf-8
