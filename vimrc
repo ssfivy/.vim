@@ -279,8 +279,31 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " Airline
+"""""""""
 let g:airline_theme='base16'        " set theme
 let g:airline_powerline_fonts = 1   " use powerline fonts
+
+" ALE
+"""""
+" Configure when linting happens
+let g:ale_lint_on_text_changed = 'never'
+
+let g:ale_linters = {
+			\ 'c'   : ['clangd'],
+			\ 'cpp' : ['clangd'],
+			\ 'python': ['pylint', 'pyflake', 'flake8'],
+			\ 'go': ['gofmt'],
+			\ 'yaml': ['yamllint']
+			\}
+let g:ale_c_parse_compile_commands = 1
+
+let g:ale_fixers = {
+			\ 'python': ['autopep8'],
+			\ 'go': ['gofmt'],
+			\ '*': ['remove_trailing_lines', 'trim_whitespace']
+			\}
+let g:ale_fix_on_save = 1
+
 
 " ================================== 
 " = Machine-specific configuration =
