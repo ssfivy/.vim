@@ -13,9 +13,5 @@ REM install nvim config
 if not exist "%LOCALAPPDATA%\nvim" mkdir "%LOCALAPPDATA%\nvim"
 move /Y init.vim "%LOCALAPPDATA%\nvim\init.vim"
 
-REM install plugin manager
-git clone https://github.com/VundleVim/Vundle.vim.git "%~dp0\bundle\Vundle.vim"
-nvim +PluginInstall +qall
-
 REM install nvim plugin python
 pip install --user pynvim

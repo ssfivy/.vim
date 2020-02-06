@@ -46,58 +46,51 @@ endif
 " = Plugin management =
 " =====================
 
-" Let vundle handle all our plugins for us
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Plugin management
-" To install plugin call :PluginInstall
-Plugin 'VundleVim/Vundle.vim'
+" Let plug handle all our plugins for us
+call plug#begin('~/.vim/bundle')
 
 " Colorschemes
-Plugin 'tomasr/molokai'
-Plugin 'ciaranm/inkpot'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'chriskempson/base16-vim'
+Plug 'tomasr/molokai'
+Plug 'ciaranm/inkpot'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'chriskempson/base16-vim'
 
 " Navigational
-Plugin 'scrooloose/nerdtree'              " treeview on side
-Plugin 'jistr/vim-nerdtree-tabs'          " nerdtree improvements
-Plugin 'myusuf3/numbers.vim'              " Intellegently toggle line numbers
-Plugin 'plasticboy/vim-markdown'          " Folding on markdown files
+Plug 'scrooloose/nerdtree'              " treeview on side
+Plug 'jistr/vim-nerdtree-tabs'          " nerdtree improvements
+Plug 'myusuf3/numbers.vim'              " Intellegently toggle line numbers
+Plug 'plasticboy/vim-markdown'          " Folding on markdown files
 
 " Editing
-Plugin 'terryma/vim-multiple-cursors'     " Multiple cursors
-Plugin 'tpope/vim-commentary'             " Comments stuff out
+Plug 'terryma/vim-multiple-cursors'     " Multiple cursors
+Plug 'tpope/vim-commentary'             " Comments stuff out
 
 " Auto completion
-Plugin 'ervandew/supertab'                " use tab key for insert completion
-Plugin 'sirver/ultisnips'           " snippet engine
-Plugin 'honza/vim-snippets'               " snippet collection
-" Plugin 'Valloric/YouCompleteMe'     " Code completion engine
+Plug 'ervandew/supertab'                " use tab key for insert completion
+"Plug 'sirver/ultisnips'           " snippet engine
+Plug 'honza/vim-snippets'               " snippet collection
+" Plug 'Valloric/YouCompleteMe'     " Code completion engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " UI
-Plugin 'vim-airline/vim-airline'           " Lean & mean status/tabline for vim that's light as air.
-Plugin 'vim-airline/vim-airline-themes'     " Themes for vim-airline
+Plug 'vim-airline/vim-airline'           " Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline-themes'     " Themes for vim-airline
 
 " Formatting
-Plugin 'godlygeek/tabular'                " Line up various texts
+Plug 'godlygeek/tabular'                " Line up various texts
 
 " Language support
-Plugin 'dense-analysis/ale'          " Asynchronous syntax checker
-Plugin 'sheerun/vim-polyglot'          " Language pack for 120+ languages
+Plug 'dense-analysis/ale'          " Asynchronous syntax checker
+Plug 'sheerun/vim-polyglot'          " Language pack for 120+ languages
 
 " External Tools
-Plugin 'tpope/vim-fugitive'         " git client
-"Plugin 'oplatek/Conque-Shell'       " Open shell inside vim window
-" Plugin 'vim-scripts/vcscommand.vim' " Multiple version control plugin
+Plug 'tpope/vim-fugitive'         " git client
+"Plug 'oplatek/Conque-Shell'       " Open shell inside vim window
 
 " TODO: https://www.vimfromscratch.com/articles/vim-for-python/
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " ========================
