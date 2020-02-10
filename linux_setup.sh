@@ -14,13 +14,13 @@ APT_TOOLS+=" fonts-powerline"
 
 echo "$APT_TOOLS" | xargs sudo apt install -y
 
-APT_TOOLS="autopep8 "
-APT_TOOLS+="bandit "
-APT_TOOLS+="pylint "
-APT_TOOLS+="pyflakes "
-APT_TOOLS+="flake8 "
+PIP_TOOLS="autopep8 "
+PIP_TOOLS+="bandit "
+PIP_TOOLS+="pylint "
+PIP_TOOLS+="pyflakes "
+PIP_TOOLS+="flake8 "
 
-echo "$PIP_TOOLS" | xargs pip install  --user
+echo "$PIP_TOOLS" | xargs pip3 install  --user
 
 # COnfigure tools
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 9
