@@ -301,13 +301,6 @@ let g:ale_fix_on_save = 1
 " ================================== 
 " = Machine-specific configuration =
 " ================================== 
-let hostname = substitute(system('hostname'), '\n', '', '')
-if hostname == "petrushka"
-	" Laptop, use light color theme
-	set background=light
-	color lucius
-	LuciusLightHighContrast
-endif
 
 " =================================== 
 " = Language-specific configuration =
