@@ -239,11 +239,11 @@ set laststatus=2
 " Hit F9 to run make
 :map <F9> :make <CR>
 
-" ================================= 
+" =================================
 " = Plugin-specific configuration =
-" ================================= 
+" =================================
 
-" NERDTree 
+" NERDTree
 """""""""""
 " open NERDTree on startup
 autocmd VimEnter * NERDTreeTabsOpen
@@ -284,7 +284,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
 			\ 'c'   : ['clangd'],
 			\ 'cpp' : ['clangd'],
-			\ 'python': ['pylint', 'pyflake', 'flake8'],
+			\ 'python': ['pylint', 'flake8'],
 			\ 'go': ['gofmt'],
 			\ 'yaml': ['yamllint']
 			\}
@@ -297,14 +297,23 @@ let g:ale_fixers = {
 			\}
 let g:ale_fix_on_save = 1
 
+" configure python linters
+let g:ale_python_autopep8_executable = 'python3'
+let g:ale_python_bandit_executable = 'python3'
+let g:ale_python_black_executable = 'python3'
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_isort_executable = 'python3'
+let g:ale_python_mypy_executable = 'python3'
+let g:ale_python_pyflakes_executable = 'python3'
+let g:ale_python_pylint_executable = 'python3'
 
-" ================================== 
+" ==================================
 " = Machine-specific configuration =
 " ================================== 
 
-" =================================== 
+" ===================================
 " = Language-specific configuration =
-" =================================== 
+" ===================================
 " See .vim/after/ftplugin for more configurations after this vimrc ends
 
 " Change colorschemes by filetype
@@ -315,4 +324,3 @@ let g:ale_fix_on_save = 1
 " \   elseif &ft ==# 'mkd' | colorscheme molokai |
 " \   endif
 ":exec "ConqueTermTab python"
-
