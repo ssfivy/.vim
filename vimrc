@@ -298,18 +298,20 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 
 " configure python linters
-let g:ale_python_autopep8_executable = 'python3'
-let g:ale_python_bandit_executable = 'python3'
-let g:ale_python_black_executable = 'python3'
+" Warning: one of these if enabled will execute python code in current buffer
+" on saving it!
+"let g:ale_python_autopep8_executable = 'python3'
+"let g:ale_python_bandit_executable = 'python3'
+"let g:ale_python_black_executable = 'python3'
 let g:ale_python_flake8_executable = 'python3'
-let g:ale_python_isort_executable = 'python3'
-let g:ale_python_mypy_executable = 'python3'
-let g:ale_python_pyflakes_executable = 'python3'
+"let g:ale_python_isort_executable = 'python3'
+"let g:ale_python_mypy_executable = 'python3'
+"let g:ale_python_pyflakes_executable = 'python3'
 let g:ale_python_pylint_executable = 'python3'
 
 " ==================================
 " = Machine-specific configuration =
-" ================================== 
+" ==================================
 
 " ===================================
 " = Language-specific configuration =

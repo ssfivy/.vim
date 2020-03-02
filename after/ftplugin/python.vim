@@ -23,7 +23,7 @@ setlocal softtabstop=4
 " \if match( getline(1) , '^\#!') == 0 |
 " \ execute("let b:interpreter = getline(1)[2:]") |
 " \endif
-" 
+"
 " fun! CallInterpreter()
 " 	if exists("b:interpreter")
 " 		set makeprg=b:interpreter."\ %"
@@ -36,6 +36,4 @@ setlocal softtabstop=4
 
 " Above solution need more vimscript magic than I have so here's a simpler
 " version for now
-map <F5> :w<cr>:!%:p<cr><cr>
-
-
+" map <F5> :w<cr>:!%:p<cr><cr>
