@@ -107,6 +107,8 @@ set history=1000
 set modeline
 set modelines=5
 
+" Use clipboard for all applications
+set clipboard+=unnamedplus
 
 " VIM user interface
 """"""""""""""""""""
