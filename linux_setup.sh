@@ -8,7 +8,7 @@
 # shell script linter
 APT_TOOLS="shellcheck"
 # clangd, a c/c++ language server, version 8 minimum
-APT_TOOLS+=" clangd-9"
+APT_TOOLS+=" clangd-10"
 # powerline fonts to make things pretty
 APT_TOOLS+=" fonts-powerline"
 
@@ -23,7 +23,7 @@ PIP_TOOLS+="flake8 "
 echo "$PIP_TOOLS" | xargs pip3 install  --user
 
 # COnfigure tools
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-9 9
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 10
 
 #create shortcut for bootstrap code
 ln -s ~/.vim/vim_bootstrap ~/.vimrc
@@ -40,7 +40,7 @@ source ~/.vimrc
 EOF
 
 # install neovim if bin dir exist and neovim not yet present
-if [[ ( -d "$HOME/bin") && ( ! -x "$HOME/bin/nvim.appimage")  ]]; then
+if [[ ( -d "$HOME/bin") && ( ! -x "$HOME/bin/nvim")  ]]; then
     pushd "$HOME/bin"
     curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
     chmod u+x nvim.appimage
@@ -49,4 +49,5 @@ if [[ ( -d "$HOME/bin") && ( ! -x "$HOME/bin/nvim.appimage")  ]]; then
     popd
 fi
 
-
+# Run and install plugins
+vim +PlugInstall +qall

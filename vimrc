@@ -151,6 +151,8 @@ else
   set background=dark
   color solarized
 endif
+" enable transparency
+hi Normal guibg=NONE ctermbg=NONE
 
 " default file encoding is utf-8
 set encoding=utf-8
