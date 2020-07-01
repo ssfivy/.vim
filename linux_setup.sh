@@ -22,7 +22,7 @@ PIP_TOOLS+="pylint "
 PIP_TOOLS+="pyflakes "
 PIP_TOOLS+="flake8 "
 
-sudo -H -E python3 -m pip install --upgrade pip setuptools
+sudo -H -E python3 -m pip install --upgrade pip setuptools wheel
 echo "$PIP_TOOLS" | xargs pip3 install  --user
 
 # COnfigure tools
