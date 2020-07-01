@@ -3,6 +3,8 @@
 # Setup vim on this linux machine
 # make sure you have git and vim installed
 
+set -xe
+
 # Do stuff that needs sudo first
 
 # shell script linter
@@ -12,7 +14,7 @@ APT_TOOLS+=" clangd-10"
 # powerline fonts to make things pretty
 APT_TOOLS+=" fonts-powerline"
 
-echo "$APT_TOOLS" | xargs sudo apt install -y
+echo "$APT_TOOLS" | xargs sudo -H -E apt install -y
 
 PIP_TOOLS="autopep8 "
 PIP_TOOLS+="bandit "
@@ -20,10 +22,11 @@ PIP_TOOLS+="pylint "
 PIP_TOOLS+="pyflakes "
 PIP_TOOLS+="flake8 "
 
+sudo -H -E python3 -m pip install --upgrade pip setuptools
 echo "$PIP_TOOLS" | xargs pip3 install  --user
 
 # COnfigure tools
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 10
+sudo -H -E update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 10
 
 #create shortcut for bootstrap code
 ln -s ~/.vim/vim_bootstrap ~/.vimrc
