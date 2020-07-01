@@ -1,0 +1,135 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  vim-install-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Checking environments
+      run: |
+        echo "Starting ubuntu vim install"
+        echo "Current working directory: $PWD"
+        echo "Content of current directory:"
+        ls -lh
+        echo "Value of ~ directory:"
+        pushd ~
+        echo $PWD
+        popd
+
+    - name: Setup Vim
+      uses: rhysd/action-setup-vim@v1.2.3
+      with:
+        version: stable
+        neovim: false
+
+    - name: Compensate github actions directory structure
+      run: |
+        pushd ~
+        ln -s -T $GITHUB_WORKSPACE .vim
+        popd
+
+    - name: Run linux setup script
+      run: ./linux_setup.sh
+
+
+  vim-install-windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Checking environments
+      run: |
+        echo "Starting windows vim install"
+        echo "Current working directory: %CD%"
+        echo "Content of current directory:"
+        dir
+
+    - name: Setup Vim
+      uses: rhysd/action-setup-vim@v1.2.3
+      with:
+        version: stable
+        neovim: false
+
+    - name: Run windows setup script 1
+      run: windows_setup.bat
+      shell: cmd
+
+    - name: Run windows setup script 2
+      run: .\windows_setup.ps
+      shell: powershell
+
+  neovim-install-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Checking environments
+      run: |
+        echo "Starting ubuntu neovim install"
+        echo "Current working directory: $PWD"
+        echo "Content of current directory:"
+        ls -lh
+        echo "Value of ~ directory:"
+        pushd ~
+        echo $PWD
+        popd
+
+    - name: Setup Vim
+      uses: rhysd/action-setup-vim@v1.2.3
+      with:
+        version: stable
+        neovim: true
+
+    - name: Compensate github actions directory structure
+      run: |
+        pushd ~
+        ln -s -T $GITHUB_WORKSPACE .vim
+        popd
+
+    - name: Run linux setup script
+      run: ./linux_setup.sh
+
+
+  neovim-install-windows:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Checking environments
+      run: |
+        echo "Starting windows neovim install"
+        echo "Current working directory: %CD%"
+        echo "Content of current directory:"
+        dir
+
+    - name: Setup Vim
+      uses: rhysd/action-setup-vim@v1.2.3
+      with:
+        version: stable
+        neovim: true
+
+    - name: Run windows setup script 1
+      run: windows_setup.bat
+      shell: cmd
+
+    - name: Run windows setup script 2
+      run: .\windows_setup.ps
+      shell: powershell
+
+#EOF

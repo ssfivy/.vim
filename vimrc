@@ -149,7 +149,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 else
   set background=dark
-  color solarized
+  "color solarized
 endif
 " enable transparency
 hi Normal guibg=NONE ctermbg=NONE
