@@ -2,6 +2,8 @@
 
 # Setup vim on this linux machine
 # make sure you have git and vim installed
+# and nodejs for coc
+# and go tool
 
 set -xe
 
@@ -28,11 +30,11 @@ echo "$PIP_TOOLS" | xargs pip3 install  --user
 # COnfigure tools
 sudo -H -E update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-10 10
 
+# Install more things
+GO111MODULE=on go get golang.org/x/tools/gopls@latest
+
 #create shortcut for bootstrap code
 ln -s ~/.vim/vim_bootstrap ~/.vimrc
-
-#shortcut for vimperator
-ln -s ~/.vim/vimperatorrc ~/.vimperatorrc
 
 # shortcut for neovim so it can find this config
 mkdir -p "$HOME/.config/nvim"
@@ -48,9 +50,12 @@ if [[ ( -d "$HOME/bin") && ( ! -x "$HOME/bin/nvim")  ]]; then
     curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
     chmod u+x nvim.appimage
     mv nvim.appimage nvim
-    pip3 install neovim
+    pip3 install pynvim
     popd
 fi
 
 # Run and install plugins
 vim +PlugInstall +qall
+
+# Run and install plugins of plugins (wat)
+# Treesitter, COC?
