@@ -37,6 +37,8 @@ let s:vimfiles="$HOME/.vim"
 if has('win32') || has('win64')
 	" Load windows-specific settings
 	:exec ":source " . s:vimfiles . "/windows.vim"
+elseif has('mac')
+	:exec ":source " . s:vimfiles . "/macos.vim"
 else
 	" Load linux-specific settings
 	:exec ":source " . s:vimfiles . "/linux.vim"
