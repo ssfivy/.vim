@@ -1,0 +1,63 @@
+" Simple barebones vim config
+
+" Long history
+set history=1000
+
+" 4-space indent everywhere
+set ts=4 sts=4 sw=4 expandtab
+
+" line numbers
+set number
+
+" Enable syntax highlighting
+syntax on
+
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases
+set smartcase
+" Highlight search results
+set hlsearch
+" While typing a search command, show where the pattern, as it was typed
+" so far, matches.  The matched string is highlighted.
+set incsearch
+" Clear search result highlight when entering insert mode
+" This sets the "latest search" register to the empty string, so that nothing
+" will be highlighted. Earlier searches can still be remembered by using the
+" key after hitting / or ? and optionally the "start" of the string to be
+" searched.
+autocmd InsertEnter * :let @/=""
+autocmd InsertLeave * :let @/=""
+
+" lear siegler, why did you put arrow keys at insane locations
+" crutch: use ijkl for sane arrow movement instead of hjkl
+" also treat long (wrapped) lines as break lines (useful when moving around in them)
+noremap i gk
+noremap I K
+noremap <C-w>i <C-w>k
+noremap <C-w>I <C-w>K
+noremap <C-w><C-i> <C-w><C-k>
+noremap j h
+noremap J H
+noremap <C-w>j <C-w>h
+noremap <C-w>J <C-w>H
+noremap <C-w><C-j> <C-w><C-h>
+noremap k gj
+noremap K J
+noremap <C-w>k <C-w>j
+noremap <C-w>K <C-w>J
+noremap <C-w><C-k> <C-w><C-k>
+noremap h i
+noremap H I
+
+
+" Hit F9 to run make
+:map <F9> :make <CR>
+
+
+
+
+
+
+
+
